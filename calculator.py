@@ -68,7 +68,7 @@ for line in file_lines:
         result = calculation.compute()
         running_total += result
         print_aligned(line, result)
-    except ValueError as error:
+    except (ValueError, ZeroDivisionError) as error:
         print_aligned(line, error)
 
 print()
