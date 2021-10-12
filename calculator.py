@@ -47,3 +47,25 @@ class Calculation:
             self.errors.append('Third element is not an integer')
         if len(self.calc_elements) > 3 and not is_integer(self.calc_elements[3]):
             self.errors.append('Fourth element is not an integer')
+
+### Main script ###
+
+file_path = input('Enter path of calculations file, or skip to use default: ').strip() \
+    or 'calculations.txt'
+
+with open(file_path, 'r') as file_handler:
+    file_lines = file_handler.read().splitlines()
+
+running_total = 0
+
+for line in file_lines:
+    calculation = Calculation(line)
+    try:
+        result = calculation.compute()
+        running_total += result
+        print_aligned(line, result)
+    except ValueError as error:
+        print_aligned(line, error)
+
+print()
+print_aligned('Final total', running_total)
