@@ -16,8 +16,12 @@ operations = {
     '+': lambda a, b: a + b,
     '-': lambda a, b: a - b,
     'x': lambda a, b: a * b,
-    '/': lambda a, b: a / b
+    '/': lambda a, b: a / b,
+    '^': lambda a, b: a ** b,
+    '%': lambda a, b: a % b
 }
+
+valid_operations = '"' + '", "'.join(operations.keys()) + '"'
 
 class Calculation:
     errors = []
@@ -42,7 +46,7 @@ class Calculation:
         if len(self.calc_elements) > 0 and self.calc_elements[0] != 'calc':
             self.errors.append('First element is not "calc"')
         if len(self.calc_elements) > 1 and self.calc_elements[1] not in operations.keys():
-            self.errors.append('Second element is not "+", "-", "x" or "/"')
+            self.errors.append('Second element is not one of ' + valid_operations)
         if len(self.calc_elements) > 2 and not is_integer(self.calc_elements[2]):
             self.errors.append('Third element is not an integer')
         if len(self.calc_elements) > 3 and not is_integer(self.calc_elements[3]):
