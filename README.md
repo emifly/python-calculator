@@ -20,4 +20,4 @@ No packages required currently, only Python itself (version 3.6 or above). Just 
 python calculator.py
 ```
 
-You will be asked if you would like to specify a path for the file containing your calculations to be run. By default, it is assumed that the calculations are contained in a file called `calculations.py` in the current directory unless specified otherwise. Each calculation should be on a separate line.
+You will be asked if you would like to specify a path for the file containing your calculations to be run. By default, it is assumed that the calculations are contained in a file called `calculations.txt` in the current directory unless specified otherwise. Each calculation should be on a separate line.
